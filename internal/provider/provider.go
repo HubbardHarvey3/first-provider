@@ -28,7 +28,7 @@ type ScaffoldingProviderModel struct {
 }
 
 func (p *ScaffoldingProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
-	resp.TypeName = "scaffolding"
+	resp.TypeName = "swapi"
 	resp.Version = p.version
 }
 
@@ -52,11 +52,14 @@ func (p *ScaffoldingProvider) Configure(ctx context.Context, req provider.Config
 		return
 	}
 
+  
 	// Configuration values are now available.
 	// if data.Endpoint.IsNull() { /* ... */ }
+  endpoint := "https://swapi.dev/api/people/1"
 
 	// Example client configuration for data sources and resources
 	client := http.DefaultClient
+  client.Get(endpoint)
 	resp.DataSourceData = client
 	resp.ResourceData = client
 }
@@ -70,6 +73,7 @@ func (p *ScaffoldingProvider) Resources(ctx context.Context) []func() resource.R
 func (p *ScaffoldingProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
 	return []func() datasource.DataSource{
 		NewExampleDataSource,
+    NewPeopleDataSource,
 	}
 }
 
