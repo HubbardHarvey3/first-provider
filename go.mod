@@ -1,4 +1,4 @@
-module github.com/hashicorp/terraform-provider-scaffolding-framework
+module example.com/hharvey/swapi-provider
 
 go 1.19
 
