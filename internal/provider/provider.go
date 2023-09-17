@@ -28,7 +28,7 @@ type ScaffoldingProviderModel struct {
 }
 
 func (p *ScaffoldingProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
-	resp.TypeName = "swapi"
+	resp.TypeName = "chucknorris"
 	resp.Version = p.version
 }
 
@@ -74,6 +74,7 @@ func (p *ScaffoldingProvider) DataSources(ctx context.Context) []func() datasour
 	return []func() datasource.DataSource{
 		NewExampleDataSource,
     NewPeopleDataSource,
+    NewJokeDataSource,
 	}
 }
 

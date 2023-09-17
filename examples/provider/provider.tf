@@ -1,17 +1,27 @@
 terraform {
     required_providers {
-      swapi = {
-          source = "example.com/hharvey/swapi-provider"
+      chucknorris = {
+          source = "example.com/hharvey/chucknorris-provider"
           version = "~> 0.0.1"
         }
     }
   }
 
-provider "swapi" {}
+provider "chucknorris" {}
 
-data "swapi_people" "data" {}
+data "chucknorris_joke" "pillow" {
+    joke_id = "m5prryVlQgWTx7mC2L8Rrw"
+}
+
+data "chucknorris_joke" "carpet" {
+    joke_id = "XBEz9TVCSVe9e7J14vDhBw"
+}
 
 
-output "WHAT" {
-    value = data.swapi_people.data
-  }
+output "pillow" {
+    value = data.chucknorris_joke.pillow
+}
+
+output "carpet" {
+    value = data.chucknorris_joke.carpet
+}

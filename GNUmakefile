@@ -12,4 +12,4 @@ testacc:
 
 build-work:
 	go install .
-	mv /usr/local/go/bin/swapi-provider /usr/local/go/bin/terraform-provider-swapi-provider
+	mv /usr/local/go/bin/chucknorris-provider /usr/local/go/bin/terraform-provider-chucknorris-provider
